@@ -3,6 +3,7 @@
 ## Conteúdo
 - [Tecnologias Envolvidas](#tecnologia-envolvida)
 - [Rodar Localmente](#arquitetura)
+- [Domínio](#dominio)
 
 ## Tecnologias Envolvidas
 - Gerenciador de pacotes padrão: [yarn](https://yarnpkg.com/)
@@ -27,3 +28,6 @@ Instanciar o servidor local:
 ```bash
 yarn start
 ```
+
+## Dominio
+- O Front-end está hospedado no Heroku, nesse [endereço](#https://compartilhar-filmes-front.herokuapp.com/)
