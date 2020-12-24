@@ -30,4 +30,4 @@ yarn start
 ```
 
 ## Dominio
-- O Front-end está hospedado no Heroku, nesse [endereço](#https://compartilhar-filmes-front.herokuapp.com/)
+- O Front-end está hospedado no Heroku, nesse [endereço](https://compartilhar-filmes-front.herokuapp.com/)
