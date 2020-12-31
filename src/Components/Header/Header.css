@@ -1,0 +1,19 @@
+.header {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 40px;
+}
+
+.header_movie-image {
+  height: 60px;
+  width: 90px;
+}
+
+.header__buttons {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
