@@ -1,0 +1,20 @@
+.home {
+  margin: 0px 40px;
+  position: relative;
+}
+
+.home__image {
+  height: 250px;
+  width: 100%;
+}
+
+.home__image_text {
+    position: absolute;
+    bottom: 8%;
+    left: 45%;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+
+
+}
