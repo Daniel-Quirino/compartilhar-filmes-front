@@ -1,5 +1,8 @@
 .home {
   margin: 0px 40px;
+}
+
+.home__featured-image {
   position: relative;
 }
 
@@ -15,6 +18,22 @@
     color: #fff;
     font-size: 18px;
     font-weight: bold;
+}
 
+.home__movies-cards {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 
+.home__movies-card {
+  margin: 20px 0px;
+}
+
+@media only screen and (max-width: 850px) {
+  .home__movies-cards {
+    justify-content: space-around ;
+  }
 }
