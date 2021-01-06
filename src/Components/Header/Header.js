@@ -1,28 +1,44 @@
-import './Header.css';
 import movie from '../../assets/movie.png'
 import Button from '../Button/Button'
 
-const Home = () => {
-  return (
-    <div className="header">
-      <img 
-        className='header_movie-image'
-        src={movie} 
-        alt='plaqueta de filme aberta'>
-      </img>
+import { makeStyles, AppBar, Toolbar } from '@material-ui/core';
 
-      <div className='header__buttons'>
+const Home = () => {
+  const classes = useStyles();
+
+  return (
+    <AppBar className={classes.appBar}>
+      <Toolbar>
+        <img src={movie} alt='logo' className={classes.logo} />
+        <div className={classes.grow} />
         <Button 
           title='Cadastre-se'
-          color='green'
+          button='signIn'
         />
         <Button 
           title='Login'
-          color='blue'
+          button='signUp'
         />
-      </div>
-    </div>
+      </Toolbar>
+    </AppBar>
   );
 }
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+      height: '100vh',
+      backgroundColor: theme.palette.background.dark
+  },
+  grow: {
+      flexGrow: 1
+  },
+  logo: {
+      height: 40,
+      width: 45
+  },
+  appBar: {
+    height: 70
+  }
+}));
 
 export default Home;

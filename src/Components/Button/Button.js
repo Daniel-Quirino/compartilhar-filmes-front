@@ -1,27 +1,31 @@
-
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-
-import './Button.css';
-
-const useStyles = makeStyles(() => ({
-  button: {
-    borderRadius: '20px'
-  },
-}));
 
 const DefaultButton = (props) => {
   const classes = useStyles();
 
   return (
       <Button 
-        variant="contained" 
-        color={props.color === 'green' ? 'secondary' : 'primary'} 
-        className={`button ${classes.button}`}
+        variant="contained"
+        color='inherit'
+        className={props.button === 'signIn' ? classes.signInButton : classes.signUpButton}
       >
         {props.title}
       </Button>
   );
 }
+
+const useStyles = makeStyles((theme) => ({
+  signUpButton: {
+    borderRadius: '20px',
+    backgroundColor: theme.palette.secondary.contrast,
+    marginRight: 10
+  },
+  signInButton: {
+    borderRadius: '20px',
+    backgroundColor: theme.palette.secondary.main,
+    marginRight: 10
+  },
+}));
 
 export default DefaultButton;
