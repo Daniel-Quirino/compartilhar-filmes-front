@@ -1,9 +1,10 @@
+import React from 'react';
+import { makeStyles, AppBar, Toolbar } from '@material-ui/core';
+
 import movie from '../../assets/movie.png'
 import Button from '../Button/Button'
 
-import { makeStyles, AppBar, Toolbar } from '@material-ui/core';
-
-const Home = () => {
+function Header(){
   const classes = useStyles();
 
   return (
@@ -41,4 +42,4 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default Home;
+export default Header;
