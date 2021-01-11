@@ -1,4 +1,4 @@
-import { makeStyles, Toolbar, Typography } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 import DoraAventureiraImg from '../../assets/dora-aventureira.png'; 
 
 function Home(){
@@ -6,7 +6,6 @@ function Home(){
 
   return (
     <div className={classes.container} >
-      <Toolbar />
       <div>
         <img 
           className={classes.homeImage}
@@ -14,9 +13,6 @@ function Home(){
           alt='imagem da divulgação do filme da Dora Aventureira'>
         </img>
         <Typography
-          gutterBottom
-          variant="h1"
-          component="h1"
           className={classes.homeImageText}
         >
           Filme em destaque
@@ -37,19 +33,13 @@ function Home(){
 
 const useStyles = makeStyles((theme) => ({
     homeImage: {
-      width: '75%',
-      height: '250px',
-      position: 'absolute',
-      top: '150px',
-      left: '25%',
-      marginTop: '-50px',
-      marginLeft: '-12.5%'
+      width: '100%',
+      height: '250px'
     },
     homeImageText: {
       position: "absolute",
       top: "300px",
       width: "100%",
-      textAlign: "center",
       color: "white",
       backgroundColor: "none",
       fontFamily: "Comic Sans MS",
@@ -64,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     },
     container: {
       display: 'flex',
-      flexDirection: 'row',
+      flexDirection: 'column',
       paddingTop: '5%',
       paddingLeft: '12%',
       paddingRight: '12%'
