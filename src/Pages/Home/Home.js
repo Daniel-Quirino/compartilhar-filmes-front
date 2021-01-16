@@ -1,6 +1,8 @@
 import './Home.css';
 import DoraAventureiraImg from '../../assets/dora-aventureira.png'; 
 import MovieCard from '../../Components/Card/MovieCard';
+import MockMoviePicture from '../../assets/minha-mae-uma-peca.jpg';
+
 
 const Home = (props) => {
 
@@ -21,42 +23,42 @@ const Home = (props) => {
       <div className='home__movies-cards'>
           <div className='home__movies-card'>
             <MovieCard 
-              title='O som do metal'
+              title='Minha mãe é uma peça - parte 3'
               note='6.7'
-              image=''
+              image={MockMoviePicture}
               views='200'
             />
           </div>
 
           <div className='home__movies-card'>
             <MovieCard 
-              title='O som do metal'
+              title='Minha mãe é uma peça - parte 3'
               note='6.7'
-              image=''
+              image={MockMoviePicture}
               views='200'
             />
           </div>
           <div className='home__movies-card'>
             <MovieCard 
-              title='O som do metal'
+              title='Minha mãe é uma peça - parte 3'
               note='6.7'
-              image=''
+              image={MockMoviePicture}
               views='200'
             />
           </div>
           <div className='home__movies-card'>
             <MovieCard 
-              title='O som do metal'
+              title='Minha mãe é uma peça - parte 3'
               note='6.7'
-              image=''
+              image={MockMoviePicture}
               views='200'
             />
           </div>
           <div className='home__movies-card'>
             <MovieCard 
-              title='O som do metal'
+              title='Minha mãe é uma peça - parte 3'
               note='6.7'
-              image=''
+              image={MockMoviePicture}
               views='200'
             />
           </div>

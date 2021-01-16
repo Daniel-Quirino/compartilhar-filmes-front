@@ -1,5 +1,6 @@
 .home {
-  margin: 0px 40px;
+  padding: 0px 40px;
+  background-color: black;
 }
 
 .home__featured-image {
