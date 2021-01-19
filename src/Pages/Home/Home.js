@@ -150,26 +150,27 @@ function Home(){
       </div>
 
       <div className={classes.background}>
-        <Typography
-            className={classes.subItemTitle}
-          >
-            Lançamentos
-        </Typography>
-        
-        <div className={classes.newMovies}>
-          {renderNewMovies()}
+        <div style={{padding: '0px 85px 0px 85px'}}>
+          <Typography
+              className={classes.subItemTitle}
+            >
+              Lançamentos
+          </Typography>
+          
+          <div className={classes.newMovies}>
+            {renderNewMovies()}
+          </div>
+
+          <Typography
+              className={classes.subItemTitle}
+            >
+              Novos usuários
+          </Typography>
+
+          <div className={classes.newUsers}>
+            {renderNewUsers()}
+          </div>
         </div>
-
-        <Typography
-            className={classes.subItemTitle}
-          >
-            Novos usuários
-        </Typography>
-
-        <div className={classes.newUsers}>
-          {renderNewUsers()}
-        </div>
-
       </div>
     </div>
   );
@@ -217,7 +218,9 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: 'space-between',
     },
     background: {
-      background: 'linear-gradient(black 20%, grey)'
+      background: 'linear-gradient(black 10%, grey)',
+      width: '110%',
+      alignSelf: 'center'
     }
 }));
 
