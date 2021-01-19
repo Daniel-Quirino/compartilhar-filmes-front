@@ -3,6 +3,7 @@ import { makeStyles, Typography } from '@material-ui/core';
 import DoraAventureiraImg from '../../assets/dora-aventureira.png'; 
 import MovieCard from '../../Components/Card/MovieCard';
 import MockMoviePicture from '../../assets/minha-mae-uma-peca.jpg';
+import NewMovieCard from '../../Components/NewMovieCard';
 
 
 function Home(){
@@ -41,6 +42,21 @@ function Home(){
     },
   ]
 
+  let newMovies = [
+    {
+      title: 'Dora, a aventureira',
+      image: DoraAventureiraImg,
+    },
+    {
+      title: 'Dora, a aventureira',
+      image: DoraAventureiraImg,
+    },
+    {
+      title: 'Dora, a aventureira',
+      image: DoraAventureiraImg,
+    },
+  ]
+
   const renderMostRatedMovies = () => {
     return mostRatedMovies.map((movie) => {
       return (
@@ -52,6 +68,17 @@ function Home(){
               views={movie.views}
             />
         </div>
+      );
+    })
+  }
+
+  const renderNewMovies = () => {
+    return newMovies.map((movie) => {
+      return (
+        <NewMovieCard 
+          title={movie.title}
+          image={movie.image}
+        />
       );
     })
   }
@@ -75,10 +102,29 @@ function Home(){
           className={classes.subItemTitle}
         >
           Filmes e séries mais bem avaliados
-        </Typography>
+      </Typography>
 
       <div className={classes.mostRatedMoviesCard}>
         {renderMostRatedMovies()}
+      </div>
+
+      <div className={classes.background}>
+        <Typography
+            className={classes.subItemTitle}
+          >
+            Lançamentos
+        </Typography>
+        
+        <div className={classes.newMovies}>
+          {renderNewMovies()}
+        </div>
+
+      <Typography
+          className={classes.subItemTitle}
+        >
+          Novos usuários
+      </Typography>
+
       </div>
     </div>
   );
@@ -101,7 +147,7 @@ const useStyles = makeStyles((theme) => ({
       color: "white",
       fontSize: 'xx-large',
       fontWeight: 'bold',
-      marginTop: '30px'
+      marginTop: '35px'
     },
     container: {
       display: 'flex',
@@ -115,7 +161,14 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'row',
       justifyContent: 'space-between',
       flexWrap: 'wrap',
-      marginTop: '30px'
+      marginTop: '25px'
+    },
+    newMovies: {
+      display: 'flex',
+      justifyContent: 'space-between',
+    },
+    background: {
+      background: 'linear-gradient(black 20%, grey)'
     }
 }));
 

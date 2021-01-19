@@ -87,8 +87,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   movieCard: {
-    width: '190px',
-    height: '250px',
+    width: '220px',
+    height: '300px',
     position: 'relative',
   },
 
