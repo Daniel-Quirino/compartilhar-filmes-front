@@ -5,6 +5,7 @@ import MovieCard from '../../Components/Card/MovieCard';
 import MockMoviePicture from '../../assets/minha-mae-uma-peca.jpg';
 import NewMovieCard from '../../Components/NewMovieCard';
 import NewUserCard from '../../Components/NewUserCard';
+import ClaqueteImg from '../../assets/claquete.png'
 
 
 function Home(){
@@ -171,6 +172,20 @@ function Home(){
             {renderNewUsers()}
           </div>
         </div>
+
+        <div className={classes.footer}>
+          <img
+            src={ClaqueteImg} 
+            alt='imagem dae uma claquete'
+            style={{
+              width: '5%',
+              marginRight: '90%'
+            }}
+          />
+          <Typography className={classes.footerText}>
+              Rede Social voltada para os amantes de Filmes!
+          </Typography>
+        </div>
       </div>
     </div>
   );
@@ -221,6 +236,17 @@ const useStyles = makeStyles((theme) => ({
       background: 'linear-gradient(black 10%, grey)',
       width: '110%',
       alignSelf: 'center'
+    },
+    footer: {
+      backgroundColor: '#8e8e8e',
+      height: '100px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    footerText: {
+      fontSize: 'x-large',
+      position: 'absolute'
     }
 }));
 
