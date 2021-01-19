@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 
 import './MovieCard.css';
 
@@ -25,17 +25,19 @@ const MovieCard = (props) => {
   
   const renderMovieText = (props) => {
     return (
-    <span className={classes.movieCardText}>{props.title}</span>
+    <Typography className={classes.movieCardText}>
+      {props.title}
+    </Typography>
     )
   }
   
 
   return (
     <div className={classes.movieCardSize}>
-      <div className={classes.MovieCard}>
+      <div className={classes.movieCard}>
         {renderNote(props)}
         <img
-          className={classes.movieCardImage}
+          className='movie-card__image'
           src={props.image}
           alt='Cartaz do filme minha mae é uma peça'
         />
@@ -91,7 +93,9 @@ const useStyles = makeStyles((theme) => ({
   },
 
   movieCardSize: {
-    width: '150px'
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column'
   },
 
   movieCardImage: {
@@ -136,10 +140,9 @@ const useStyles = makeStyles((theme) => ({
   },
   
   movieCardText: {
-    fontSize: '14px',
+    fontSize: 'larger',
     color: 'white',
     fontWeight: '600',
-    maxWidth: '100px',
   }
 }));
 
