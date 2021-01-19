@@ -1,6 +1,6 @@
 .movie-card {
-  width: 150px;
-  height: 200px;
+  width: 190px;
+  height: 250px;
   position: relative;
 }
 
@@ -15,8 +15,8 @@
 }
 
 .movie-card__note {
-  height: 30px;
-  width: 30px;
+  height: 26px;
+  width: 37px;
   background-color: green;
   color: white;
   border-radius: 50%;

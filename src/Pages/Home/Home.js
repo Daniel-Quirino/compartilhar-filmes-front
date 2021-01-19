@@ -1,3 +1,4 @@
+import React from 'react'
 import { makeStyles, Typography } from '@material-ui/core';
 import DoraAventureiraImg from '../../assets/dora-aventureira.png'; 
 import MovieCard from '../../Components/Card/MovieCard';
