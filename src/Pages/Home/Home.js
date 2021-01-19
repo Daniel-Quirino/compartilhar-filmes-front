@@ -4,6 +4,7 @@ import DoraAventureiraImg from '../../assets/dora-aventureira.png';
 import MovieCard from '../../Components/Card/MovieCard';
 import MockMoviePicture from '../../assets/minha-mae-uma-peca.jpg';
 import NewMovieCard from '../../Components/NewMovieCard';
+import NewUserCard from '../../Components/NewUserCard';
 
 
 function Home(){
@@ -57,6 +58,34 @@ function Home(){
     },
   ]
 
+  let newUsers = [
+    {
+      name: 'Lucas Silva',
+      age: 21,
+      address: 'Belo Horizonte, MG'
+    },
+    {
+      name: 'Lucas Silva',
+      age: 21,
+      address: 'Belo Horizonte, MG'
+    },
+    {
+      name: 'Lucas Silva',
+      age: 21,
+      address: 'Belo Horizonte, MG'
+    },
+    {
+      name: 'Lucas Silva',
+      age: 21,
+      address: 'Belo Horizonte, MG'
+    },
+    {
+      name: 'Lucas Silva',
+      age: 21,
+      address: 'Belo Horizonte, MG'
+    },
+  ]
+
   const renderMostRatedMovies = () => {
     return mostRatedMovies.map((movie) => {
       return (
@@ -78,6 +107,18 @@ function Home(){
         <NewMovieCard 
           title={movie.title}
           image={movie.image}
+        />
+      );
+    })
+  }
+
+  const renderNewUsers = () => {
+    return newUsers.map((user) => {
+      return (
+        <NewUserCard 
+          name={user.name}
+          age={user.age}
+          address={user.address}
         />
       );
     })
@@ -119,11 +160,15 @@ function Home(){
           {renderNewMovies()}
         </div>
 
-      <Typography
-          className={classes.subItemTitle}
-        >
-          Novos usuários
-      </Typography>
+        <Typography
+            className={classes.subItemTitle}
+          >
+            Novos usuários
+        </Typography>
+
+        <div className={classes.newUsers}>
+          {renderNewUsers()}
+        </div>
 
       </div>
     </div>
@@ -164,6 +209,10 @@ const useStyles = makeStyles((theme) => ({
       marginTop: '25px'
     },
     newMovies: {
+      display: 'flex',
+      justifyContent: 'space-between',
+    },
+    newUsers: {
       display: 'flex',
       justifyContent: 'space-between',
     },
