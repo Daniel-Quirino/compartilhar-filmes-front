@@ -11,31 +11,31 @@ function Home(){
     {
       title: 'O som do metal',
       note: '6.7',
-      image: '',
+      image: MockMoviePicture,
       views: '200',
     },
     {
       title: 'O som do metal',
       note: '6.7',
-      image: '',
+      image: MockMoviePicture,
       views: '200',
     },
     {
       title: 'O som do metal',
       note: '6.7',
-      image: '',
+      image: MockMoviePicture,
       views: '200',
     },
     {
       title: 'O som do metal',
       note: '6.7',
-      image: '',
+      image: MockMoviePicture,
       views: '200',
     },
     {
       title: 'O som do metal',
       note: '6.7',
-      image: '',
+      image: MockMoviePicture,
       views: '200',
     },
   ]
@@ -70,48 +70,8 @@ function Home(){
         </Typography>
       </div>
 
-      <div className='home__movies-cards'>
-          <div className='home__movies-card'>
-            <MovieCard 
-              title='Minha mãe é uma peça - parte 3'
-              note='6.7'
-              image={MockMoviePicture}
-              views='200'
-            />
-          </div>
-
-          <div className='home__movies-card'>
-            <MovieCard 
-              title='Minha mãe é uma peça - parte 3'
-              note='6.7'
-              image={MockMoviePicture}
-              views='200'
-            />
-          </div>
-          <div className='home__movies-card'>
-            <MovieCard 
-              title='Minha mãe é uma peça - parte 3'
-              note='6.7'
-              image={MockMoviePicture}
-              views='200'
-            />
-          </div>
-          <div className='home__movies-card'>
-            <MovieCard 
-              title='Minha mãe é uma peça - parte 3'
-              note='6.7'
-              image={MockMoviePicture}
-              views='200'
-            />
-          </div>
-          <div className='home__movies-card'>
-            <MovieCard 
-              title='Minha mãe é uma peça - parte 3'
-              note='6.7'
-              image={MockMoviePicture}
-              views='200'
-            />
-          </div>
+      <div className={classes.mostRatedMoviesCard}>
+        {renderMostRatedMovies()}
       </div>
     </div>
   );
