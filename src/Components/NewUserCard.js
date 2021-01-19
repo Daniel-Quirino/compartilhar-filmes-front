@@ -3,10 +3,8 @@ import { makeStyles } from '@material-ui/core';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import userAvatar from '../assets/user_profile.png'
@@ -40,14 +38,6 @@ const NewUserCard = (props) => {
               <Typography className={classes.description}>
                   {props.address}
               </Typography>
-              {/* <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary">
-                Share
-                </Button>
-                <Button size="small" color="primary">
-                Learn More
-                </Button>
-              </CardActions> */}
             </CardContent>
           </CardActionArea>
         </Card>
