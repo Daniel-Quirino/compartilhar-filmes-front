@@ -1,8 +1,57 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import DoraAventureiraImg from '../../assets/dora-aventureira.png'; 
+import MovieCard from '../../Components/Card/MovieCard';
 
 function Home(){
   const classes = useStyles();
+
+  let mostRatedMovies = [
+    {
+      title: 'O som do metal',
+      note: '6.7',
+      image: '',
+      views: '200',
+    },
+    {
+      title: 'O som do metal',
+      note: '6.7',
+      image: '',
+      views: '200',
+    },
+    {
+      title: 'O som do metal',
+      note: '6.7',
+      image: '',
+      views: '200',
+    },
+    {
+      title: 'O som do metal',
+      note: '6.7',
+      image: '',
+      views: '200',
+    },
+    {
+      title: 'O som do metal',
+      note: '6.7',
+      image: '',
+      views: '200',
+    },
+  ]
+
+  const renderMostRatedMovies = () => {
+    return mostRatedMovies.map((movie) => {
+      return (
+        <div className={classes.mostRatedMoviesCard} key={movie.title+Math.random()}>
+            <MovieCard 
+              title={movie.title}
+              note={movie.note}
+              image={movie.image}
+              views={movie.views}
+            />
+        </div>
+      );
+    })
+  }
 
   return (
     <div className={classes.container} >
@@ -26,6 +75,9 @@ function Home(){
           >
             Filmes e séries mais bem avaliados
         </Typography>
+        <div className={classes.mostRatedMoviesCard}>
+          {renderMostRatedMovies()}
+        </div>
       </div>
     </div>
   );
@@ -56,6 +108,13 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: '5%',
       paddingLeft: '12%',
       paddingRight: '12%'
+    },
+    mostRatedMoviesCard: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      flexWrap: 'wrap',
+      marginTop: '30px'
     }
 }));
 
