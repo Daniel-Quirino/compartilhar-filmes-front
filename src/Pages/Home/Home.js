@@ -70,6 +70,12 @@ function Home(){
         </Typography>
       </div>
 
+      <Typography
+          className={classes.subItemTitle}
+        >
+          Filmes e séries mais bem avaliados
+        </Typography>
+
       <div className={classes.mostRatedMoviesCard}>
         {renderMostRatedMovies()}
       </div>
