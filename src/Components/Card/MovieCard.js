@@ -1,15 +1,42 @@
 import './MovieCard.css';
-import MockMoviePicture from '../../assets/minha-mae-uma-peca.jpg'
+
+
+const renderNote = (props) => {
+  return (
+    <div className='movie-card__note'>
+      <span>{props.note}</span>
+    </div>
+  )
+}
+
+const renderViews = (props) => {
+  return (
+    <div className='movie-card__views'>
+      <span className='movie-card__views__text'>{props.views}</span>
+    </div>
+  )
+}
+
+const renderMovieText = (props) => {
+  return (
+  <span className='movie-card__text'>{props.title}</span>
+  )
+}
+
 
 const Home = (props) => {
   return (
-    <div className="movie-card">
-      <img
-        className='movie-card__image'
-        src={MockMoviePicture}
-        alt='Cartaz do filme minha mae é uma peça'
-      />
-      <p>{props.title}</p>
+    <div className="movie-card_size">
+      <div className="movie-card">
+        {renderNote(props)}
+        <img
+          className='movie-card__image'
+          src={props.image}
+          alt='Cartaz do filme minha mae é uma peça'
+        />
+        {renderViews(props)}
+      </div>
+      {renderMovieText(props)}
     </div>
   );
 }

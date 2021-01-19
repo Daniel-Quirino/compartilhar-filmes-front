@@ -1,6 +1,8 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import DoraAventureiraImg from '../../assets/dora-aventureira.png'; 
 import MovieCard from '../../Components/Card/MovieCard';
+import MockMoviePicture from '../../assets/minha-mae-uma-peca.jpg';
+
 
 function Home(){
   const classes = useStyles();
@@ -67,17 +69,49 @@ function Home(){
           Filme em destaque
         </Typography>
       </div>
-      <div>
-        <Typography
-            variant="h1"
-            component="h1"
-            className={classes.subItemTitle}
-          >
-            Filmes e séries mais bem avaliados
-        </Typography>
-        <div className={classes.mostRatedMoviesCard}>
-          {renderMostRatedMovies()}
-        </div>
+
+      <div className='home__movies-cards'>
+          <div className='home__movies-card'>
+            <MovieCard 
+              title='Minha mãe é uma peça - parte 3'
+              note='6.7'
+              image={MockMoviePicture}
+              views='200'
+            />
+          </div>
+
+          <div className='home__movies-card'>
+            <MovieCard 
+              title='Minha mãe é uma peça - parte 3'
+              note='6.7'
+              image={MockMoviePicture}
+              views='200'
+            />
+          </div>
+          <div className='home__movies-card'>
+            <MovieCard 
+              title='Minha mãe é uma peça - parte 3'
+              note='6.7'
+              image={MockMoviePicture}
+              views='200'
+            />
+          </div>
+          <div className='home__movies-card'>
+            <MovieCard 
+              title='Minha mãe é uma peça - parte 3'
+              note='6.7'
+              image={MockMoviePicture}
+              views='200'
+            />
+          </div>
+          <div className='home__movies-card'>
+            <MovieCard 
+              title='Minha mãe é uma peça - parte 3'
+              note='6.7'
+              image={MockMoviePicture}
+              views='200'
+            />
+          </div>
       </div>
     </div>
   );
