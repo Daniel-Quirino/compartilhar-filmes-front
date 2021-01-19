@@ -6,7 +6,7 @@ function Home(){
 
   return (
     <div className={classes.container} >
-      <div>
+      <div style={{display: 'flex', justifyContent: 'center'}}>
         <img 
           className={classes.homeImage}
           src={DoraAventureiraImg} 
@@ -39,10 +39,8 @@ const useStyles = makeStyles((theme) => ({
     homeImageText: {
       position: "absolute",
       top: "300px",
-      width: "100%",
       color: "white",
       backgroundColor: "none",
-      fontFamily: "Comic Sans MS",
       fontSize: 'x-large',
       fontWeight: 'bold'
     },
@@ -50,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
       color: "white",
       fontSize: 'xx-large',
       fontWeight: 'bold',
-      fontFamily: "Comic Sans MS",
+      marginTop: '30px'
     },
     container: {
       display: 'flex',
