@@ -1,5 +1,6 @@
 import React from 'react'
 import { makeStyles, Typography } from '@material-ui/core';
+import { formatarAltDeFilmes } from '../Utils/Filme';
 
 import './MovieCard.css';
 
@@ -39,7 +40,7 @@ const MovieCard = (props) => {
         <img
           className='movie-card__image'
           src={props.image}
-          alt='Cartaz do filme minha mae é uma peça'
+          alt={formatarAltDeFilmes(props.title)}
         />
         {renderViews(props)}
       </div>

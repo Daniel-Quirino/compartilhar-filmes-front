@@ -5,6 +5,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import {formatarIdade, formatarAltDaImagem} from './Utils/User';
 
 import userAvatar from '../assets/user_profile.png'
 
@@ -18,7 +19,7 @@ const NewUserCard = (props) => {
             <div className={classes.avatarPosition}>
                 <CardMedia
                     component="img"
-                    alt="Avatar do usuário"
+                    alt={formatarAltDaImagem(props.name)}
                     height="150"
                     image={userAvatar}
                     title="Avatar do usuário"
@@ -32,7 +33,7 @@ const NewUserCard = (props) => {
                   {props.name}
               </Typography>
               <Typography className={classes.description}>
-                  {props.age + ' anos'}
+                  {formatarIdade(props.age)}
               </Typography>
               <Typography className={classes.description}>
                   {props.address}
