@@ -35,13 +35,7 @@ function Home(){
       note: '6.7',
       image: MockMoviePicture,
       views: '200',
-    },
-    {
-      title: 'O som do metal',
-      note: '6.7',
-      image: MockMoviePicture,
-      views: '200',
-    },
+    }
   ]
 
   let newMovies = [
