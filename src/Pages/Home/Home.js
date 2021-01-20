@@ -74,11 +74,6 @@ function Home(){
       age: 21,
       address: 'Belo Horizonte, MG'
     },
-    {
-      name: 'Lucas Silva',
-      age: 21,
-      address: 'Belo Horizonte, MG'
-    },
   ]
 
   const renderMostRatedMovies = () => {
@@ -192,7 +187,7 @@ const useStyles = makeStyles((theme) => ({
     },
     homeImageText: {
       position: "absolute",
-      top: "300px",
+      top: "270px",
       color: "white",
       backgroundColor: "none",
       fontSize: 'x-large',

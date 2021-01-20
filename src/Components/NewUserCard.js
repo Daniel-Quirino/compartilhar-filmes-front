@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     },
     root: {
         width: '20%',
-        margin: '50px',
+        margin: '10px 10px 10px 10px',
         borderRadius: '20px',
         backgroundColor: '#1e1b49'
     },
@@ -83,6 +83,55 @@ const useStyles = makeStyles((theme) => ({
     avatarPosition: {
         display: 'flex',
         justifyContent: 'center'
+    },
+    homeImage: {
+      width: '100%',
+      height: '250px'
+    },
+    homeImageText: {
+      position: "absolute",
+      top: "270px",
+      color: "white",
+      backgroundColor: "none",
+      fontSize: 'x-large',
+      fontWeight: 'bold'
+    },
+    subItemTitle: {
+      color: "white",
+      fontSize: 'xx-large',
+      fontWeight: 'bold',
+      marginTop: '35px'
+    },
+    mostRatedMoviesCard: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      flexWrap: 'wrap',
+      marginTop: '25px'
+    },
+    newMovies: {
+      display: 'flex',
+      justifyContent: 'space-between',
+    },
+    newUsers: {
+      display: 'flex',
+      justifyContent: 'space-between',
+    },
+    background: {
+      background: 'linear-gradient(black 10%, grey)',
+      width: '110%',
+      alignSelf: 'center'
+    },
+    footer: {
+      backgroundColor: '#8e8e8e',
+      height: '100px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    footerText: {
+      fontSize: 'x-large',
+      position: 'absolute'
     }
 }));
 
