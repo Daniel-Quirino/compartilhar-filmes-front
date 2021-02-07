@@ -23,7 +23,6 @@ function App() {
     },
   });
 
-
   return (
     <ThemeProvider theme={theme}>
       <Header getMovie={getMovie}/>
