@@ -50,6 +50,7 @@ function SearchMovie(props){
     })
   }
 
+  
   return (
     <div className={classes.container} >
       <div className={classes.mostRatedMoviesCard}>
