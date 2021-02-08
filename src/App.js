@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core';
 
 import Header from './Components/Header/Header';
-import Home from './Pages/Home/Home';
-import SearchMovie from './Pages/SearchMovie';
+import Routes from './routes';
 
 function App() {
   const [ searchMovie, setSearchMovie ] = useState('');
@@ -26,7 +25,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Header getMovie={getMovie}/>
-      {searchMovie ? <SearchMovie searchMovie={searchMovie}/> : <Home/>}
+      <Routes searchMovie={searchMovie}/>
     </ThemeProvider>
   )
 }
