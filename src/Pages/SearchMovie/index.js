@@ -1,25 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import { makeStyles, Typography } from '@material-ui/core';
-import MockMoviePicture from '../../assets/minha-mae-uma-peca.jpg';
 import MovieCard from '../../Components/Card/MovieCard';
-import moviesService from '../../service/movies'
+import moviesService, { likeMovieService } from '../../service/movies'
+import LikeButton from '../../Components/LikeButton';
 
 import './styles.css'
 
-
 function SearchMovie(props){
+
+  async function fetchData() {
+    try {
+        const response = await moviesService();
+        setMovies(response.movies)
+    } catch (e) {
+    }
+  };
+
   const [ movies, setMovies ] = useState([])
   const classes = useStyles();
+  
+  async function likeMovie(id, status) {
+    await likeMovieService(id, status);
+    return await fetchData();
+  }
 
   useEffect( () => {
-    async function fetchData() {
-      try {
-          const response = await moviesService();
-          setMovies(response.movies)
-      } catch (e) {
-      }
-  };
-  fetchData();
+    fetchData();
   }, [])
 
   const renderMostRatedMovies = () => {
@@ -29,12 +35,16 @@ function SearchMovie(props){
     .map((movie) => {
       return (
         <div className={classes.mostRatedMoviesCard} key={movie.title+Math.random()}>
+          <div>
             <MovieCard 
               title={movie.title}
               note={movie.notes}
               image={movie.image}
               views={movie.views}
             />
+            <div onClick={() => likeMovie(movie._id, movie.likes)} > <LikeButton  likes={movie.likes}/> </div>
+            
+            </div>
         </div>
       );
     })
@@ -43,7 +53,7 @@ function SearchMovie(props){
   return (
     <div className={classes.container} >
       <div className={classes.mostRatedMoviesCard}>
-        {renderMostRatedMovies()}
+        {renderMostRatedMovies()} 
       </div>
     </div>
   )
