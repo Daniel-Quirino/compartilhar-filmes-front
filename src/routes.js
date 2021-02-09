@@ -1,14 +1,20 @@
 import React from 'react'
-import {HashRouter, Route, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import Home from './Pages/Home/Home';
 import SearchMovie from './Pages/SearchMovie';
+import Login from './Pages/Login/Login'
 
-export default props => (
-    <HashRouter>
-        {props.searchMovie ? 
-        <Route path='/' component={() => <SearchMovie searchMovie={props.searchMovie}/>} /> :
-        <Route path='/' component={Home} />}
-        <Redirect from='*' to='/' />
-    </HashRouter>
-)
+const Routes = (props) => {
+    return (
+        <Router>
+            {props.searchMovie ? 
+                <Route exact path="/" component={() => <SearchMovie searchMovie={props.searchMovie}/>} /> :
+                <Route exact path="/" component={Home} />
+            }
+            <Route exact path="/login" component={Login} />
+        </Router>
+    )
+}
+
+export default Routes;
