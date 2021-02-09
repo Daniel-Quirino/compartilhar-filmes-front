@@ -34,13 +34,13 @@ function Header(props) {
           />
         </div>
         <div className={classes.grow} />
-        <Link href="/cadastrar">
+        <Link href="/cadastrar" style={{textDecoration: 'none'}}>
           <Button 
             title='Cadastre-se'
             button='signIn'
           />
         </Link>
-        <Link href="/entrar">
+        <Link href="/entrar" style={{textDecoration: 'none'}}>
           <Button
             title='Login'
             button='signUp'

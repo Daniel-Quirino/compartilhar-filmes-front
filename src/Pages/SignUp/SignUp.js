@@ -122,7 +122,7 @@ const SignUp = (props) => {
                       color="primary"
                       className={classes.submit}
                   >
-                      Entrar
+                      Cadastrar
                   </Button>
                   <Grid container>
                       <Grid item xs />
