@@ -15,7 +15,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="/">
         Filmateca
       </Link>{' '}
       {new Date().getFullYear()}
@@ -85,7 +85,6 @@ export default function SignUp() {
                         label="Email"
                         name="email"
                         autoComplete="email"
-                        autoFocus
                     />
                 </ Grid>
                 <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -98,7 +97,6 @@ export default function SignUp() {
                         label="Usuário"
                         name="username"
                         autoComplete="username"
-                        autoFocus
                     />
                 </Grid>
                 <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -111,7 +109,6 @@ export default function SignUp() {
                         label="Cidade"
                         name="city"
                         autoComplete="city"
-                        autoFocus
                     />
                 </ Grid>
                 <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -159,7 +156,7 @@ export default function SignUp() {
                 <Grid item xs>
                 </Grid>
                 <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/entrar" variant="body2">
                     {"Já possui uma conta? Entre aqui"}
                 </Link>
                 </Grid>

@@ -5,6 +5,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import movie from '../../assets/movie.png'
 import Button from '../Button/Button'
+import Link from '@material-ui/core/Link';
 
 function Header(props) {
   const classes = useStyles();
@@ -13,7 +14,9 @@ function Header(props) {
     <AppBar className={classes.appBar}>
       <Toolbar>
         <div className={classes.margin}>
-          <img src={movie} alt='logo' className={classes.logo} />
+          <Link href="/">
+            <img src={movie} alt='logo' className={classes.logo} />
+          </Link>
         </div>
         
         <div className={classes.search}>
@@ -31,15 +34,18 @@ function Header(props) {
           />
         </div>
         <div className={classes.grow} />
-
-        <Button 
-          title='Cadastre-se'
-          button='signIn'
-        />
-        <Button 
-          title='Login'
-          button='signUp'
-        />
+        <Link href="/cadastrar">
+          <Button 
+            title='Cadastre-se'
+            button='signIn'
+          />
+        </Link>
+        <Link href="/entrar">
+          <Button
+            title='Login'
+            button='signUp'
+          />
+        </Link>
       </Toolbar>
     </AppBar>
   );

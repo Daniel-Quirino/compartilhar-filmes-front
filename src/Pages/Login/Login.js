@@ -103,7 +103,7 @@ export default function Login() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/cadastrar" variant="body2">
                 {"Não possui conta? Cadastre-se"}
               </Link>
             </Grid>
