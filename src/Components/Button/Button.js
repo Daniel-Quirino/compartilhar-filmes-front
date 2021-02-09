@@ -19,12 +19,22 @@ const useStyles = makeStyles((theme) => ({
   signUpButton: {
     borderRadius: '20px',
     backgroundColor: theme.palette.secondary.contrast,
-    marginRight: 10
+    marginRight: 10,
+    fontWeight: 600,
+    color: 'white',
+    '&:hover': {
+      color: "black",
+    },
   },
   signInButton: {
     borderRadius: '20px',
     backgroundColor: theme.palette.secondary.main,
-    marginRight: 10
+    marginRight: 10,
+    fontWeight: 600,
+    color: 'white',
+    '&:hover': {
+      color: "black",
+    },
   },
 }));
 
