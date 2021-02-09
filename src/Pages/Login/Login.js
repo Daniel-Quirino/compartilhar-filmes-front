@@ -16,9 +16,9 @@ const Login = (props) => {
 
   const Copyright = () => {
     return (
-        <Typography variant="body2" color="textSecondary" align="center">
+        <Typography variant="body2" color="textSecondary" align="center"  style={{paddingTop: '50px'}}>
             {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
+            <Link color="inherit" href="/">
               Filmateca
             </Link>{' '}
             {new Date().getFullYear()}

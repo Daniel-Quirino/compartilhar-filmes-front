@@ -18,7 +18,7 @@ const SignUp = (props) => {
 
   const Copyright = () => {
       return (
-          <Typography variant="body2" color="textSecondary" align="center">
+          <Typography variant="body2" color="textSecondary" align="center"  style={{paddingTop: '50px'}}>
             {'Copyright © '}
             <Link color="inherit" href="/">
               Filmateca
@@ -134,7 +134,7 @@ const SignUp = (props) => {
                 </Grid>
             </form>
           </div>
-          <Box mt={8}>
+          <Box>
               {Copyright}
           </Box>
       </Container>
