@@ -58,7 +58,7 @@ export default function Login() {
       <div className={classes.paper}>
         <img src={movie} alt='logo' className={classes.logo} />
         <Typography component="h1" variant="h5">
-          Bem vindo de volta!
+          Bem-vindo de volta!
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
