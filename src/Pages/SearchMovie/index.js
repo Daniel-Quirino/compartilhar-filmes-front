@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core';
 import MovieCard from '../../Components/Card/MovieCard';
-import moviesService, { likeMovieService } from '../../service/movies'
+import moviesService, { likeMovieService, rateMovieService } from '../../service/movies'
 import LikeButton from '../../Components/LikeButton';
+import Rate from '../../Components/rate';
 
 import './styles.css'
 
@@ -24,6 +25,11 @@ function SearchMovie(props){
     return await fetchData();
   }
 
+  async function rateMovie(id, rate) {
+    await rateMovieService(id, rate);
+    return await fetchData();
+  }
+
   useEffect( () => {
     fetchData();
   }, [])
@@ -42,7 +48,10 @@ function SearchMovie(props){
               image={movie.image}
               views={movie.views}
             />
-            <div onClick={() => likeMovie(movie._id, movie.likes)} > <LikeButton  likes={movie.likes}/> </div>
+            <div className={classes.align}>
+              <div onClick={() => likeMovie(movie._id, movie.likes)} > <LikeButton  likes={movie.likes}/>  </div>
+              <Rate rateMovie={rateMovie} rating={movie.rate} movieId={movie._id}/>
+            </div>
             
             </div>
         </div>
@@ -66,7 +75,8 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'column',
       paddingTop: '5%',
       paddingLeft: '12%',
-      paddingRight: '12%'
+      paddingRight: '12%',
+      backgroundColor: 'white'
     },
     mostRatedMoviesCard: {
       display: 'flex',
@@ -75,6 +85,12 @@ const useStyles = makeStyles((theme) => ({
       flexWrap: 'wrap',
       marginTop: '25px'
     },
+    align: {
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignContent: 'center'
+    }
 }));
 
 export default SearchMovie;
