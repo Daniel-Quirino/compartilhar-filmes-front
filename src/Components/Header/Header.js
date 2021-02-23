@@ -9,7 +9,6 @@ import Link from '@material-ui/core/Link';
 
 function Header(props) {
   const classes = useStyles();
-
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>
@@ -34,18 +33,29 @@ function Header(props) {
           />
         </div>
         <div className={classes.grow} />
-        <Link href="/cadastrar" style={{textDecoration: 'none'}}>
-          <Button 
-            title='Cadastre-se'
-            button='signIn'
-          />
-        </Link>
-        <Link href="/entrar" style={{textDecoration: 'none'}}>
-          <Button
-            title='Login'
-            button='signUp'
-          />
-        </Link>
+
+        {props.loggedUser === null &&
+          <>
+            <Link href="/cadastrar" style={{textDecoration: 'none'}}>
+              <Button 
+                title='Cadastre-se'
+                button='signIn'
+              />
+            </Link>
+            <Link href="/entrar" style={{textDecoration: 'none'}}>
+              <Button
+                title='Login'
+                button='signUp'
+              />
+            </Link>
+          </>
+        }
+
+        {!(props.loggedUser === null) &&
+          <>
+            
+          </>
+        }
       </Toolbar>
     </AppBar>
   );

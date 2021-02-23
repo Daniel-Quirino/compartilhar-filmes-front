@@ -17,7 +17,7 @@ export default function HoverRating(props) {
   const classes = useStyles();
 
 
-  function rateMovie() {}
+  //function rateMovie() {}
 
   return (
     <div className={classes.root}>

@@ -8,11 +8,28 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+
+import { useHistory } from "react-router-dom";
 
 import movie from '../../assets/movie.png'
+import doLogin from '../../service/login/index'
+
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const Login = (props) => {
+
   const classes = useStyles();
+  const [password, setPassword] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const history = useHistory();
+  
+  const [open, setOpen] = React.useState(false);
+  const [severity, setSeverity] = React.useState('');
+  const [notificationMessage, setNotificationMessage] = React.useState('');
 
   const Copyright = () => {
     return (
@@ -25,6 +42,45 @@ const Login = (props) => {
             {'.'}
         </Typography>
     );
+  }
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
+
+  const login = async () => {
+
+    if(password === '' || email === ''){
+        setSeverity("warning");
+        setNotificationMessage("Preencher todos os campos!");
+        handleClick();
+        return null;
+    }
+
+    const userToLogin = {
+        email: email,
+        password: password
+    }
+    
+    try{
+        const res = await doLogin(userToLogin);
+        setEmail('');
+        setPassword('');
+        localStorage.setItem("token", JSON.stringify(res.data.user[0]))
+        history.push("/");
+        window.location.reload();
+    }catch(error){
+        setSeverity("error");
+        setNotificationMessage("Usuário ou senha inválida");
+        handleClick();
+    }
   }
 
   return (
@@ -48,6 +104,8 @@ const Login = (props) => {
                       name="email"
                       autoComplete="email"
                       autoFocus
+                      value={email}
+                      onChange={e => {setEmail(e.target.value)}}
                   />
                   <TextField
                       variant="outlined"
@@ -59,14 +117,16 @@ const Login = (props) => {
                       type="password"
                       id="password"
                       autoComplete="current-password"
+                      value={password}
+                      onChange={e => {setPassword(e.target.value)}}
                   />
 
                   <Button
-                      type="submit"
                       fullWidth
                       variant="contained"
                       color="primary"
                       className={classes.submit}
+                      onClick={() => login()}
                   >
                     Entrar
                   </Button>
@@ -92,6 +152,12 @@ const Login = (props) => {
           <Box mt={8}>
               {Copyright}
           </Box>
+
+          <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={severity}>
+                    {notificationMessage}
+                </Alert>
+          </Snackbar>
 
       </Container>
   );

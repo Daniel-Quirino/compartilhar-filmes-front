@@ -11,11 +11,11 @@ const Routes = (props) => {
         <Router>
             <Switch>
                 {props.searchMovie ? 
-                    <Route exact path="/" component={() => <SearchMovie searchMovie={props.searchMovie}/>} /> :
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/" component={() => <SearchMovie searchMovie={props.searchMovie} loggedUser={props.loggedUser}/>} /> :
+                    <Route exact path="/" component={() => <Home loggedUser={props.loggedUser}/>} />
                 }
-                <Route exact path="/entrar" component={Login} />
-                <Route exact path ="/cadastrar" component={SignUp} />
+                <Route exact path="/entrar" component={() => <Login loggedUser={props.loggedUser} setLoggedUser={props.setLoggedUser}/>} />
+                <Route exact path ="/cadastrar" component={() => <SignUp loggedUser={props.loggedUser}/>} />
             </Switch>
         </Router>
     )

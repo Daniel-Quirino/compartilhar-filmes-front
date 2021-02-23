@@ -6,6 +6,7 @@ import Routes from './routes';
 
 function App() {
   const [ searchMovie, setSearchMovie ] = useState('');
+  const [ loggedUser, setLoggedUser ] = useState(JSON.parse(localStorage.getItem('token')));
   const getMovie = (movie) => {
     setSearchMovie(movie)
   }
@@ -24,8 +25,8 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header getMovie={getMovie}/>
-      <Routes searchMovie={searchMovie}/>
+      <Header getMovie={getMovie} loggedUser={loggedUser}/>
+      <Routes searchMovie={searchMovie} loggedUser={loggedUser} setLoggedUser={setLoggedUser}/>
     </ThemeProvider>
   )
 }
