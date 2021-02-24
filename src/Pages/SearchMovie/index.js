@@ -4,6 +4,7 @@ import MovieCard from '../../Components/Card/MovieCard';
 import moviesService, { likeMovieService, rateMovieService } from '../../service/movies'
 import LikeButton from '../../Components/LikeButton';
 import Rate from '../../Components/rate';
+
 import {Link} from 'react-router-dom'
 
 import './styles.css'
@@ -43,20 +44,21 @@ function SearchMovie(props){
       return (
         <div className={classes.mostRatedMoviesCard} key={movie.title+Math.random()}>
           <div>
-          <Link to={`/movies/${movie._id}`}>
-            <MovieCard 
-                title={movie.title}
-                note={movie.notes}
-                image={movie.image}
-                views={movie.views}
-              />
-          </Link>
+            <Link to={`/movies/${movie._id}`}>
+              <MovieCard 
+                  title={movie.title}
+                  note={movie.notes}
+                  image={movie.image}
+                  views={movie.views}
+                />
+            </Link>
             <div className={classes.align}>
               <div onClick={() => likeMovie(movie._id, movie.likes)} > <LikeButton  likes={movie.likes}/>  </div>
               <Rate rateMovie={rateMovie} rating={movie.rate} movieId={movie._id}/>
-            </div>
-            
+            </div> 
           </div>
+          
+
         </div>
       );
     })
@@ -86,8 +88,7 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'row',
       justifyContent: 'space-between',
       flexWrap: 'wrap',
-      marginTop: '25px',
-      textDecoration: 'none'
+      marginTop: '25px'
     },
     align: {
       width: '100%',

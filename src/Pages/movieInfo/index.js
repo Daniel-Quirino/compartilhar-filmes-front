@@ -5,6 +5,7 @@ import { getMovie, rateMovieService , likeMovieService} from '../../service/movi
 import MovieCard from '../../Components/Card/MovieCard'
 import Rate from '../../Components/rate'
 import LikeButton from '../../Components/LikeButton'
+import ResumeCard from '../../Components/ResumeCard'
 ;
 function MovieInfo(props) {
   const classes = useStyles();
@@ -50,8 +51,8 @@ function MovieInfo(props) {
               <div onClick={() => likeMovie(movie._id, movie.likes)} > <LikeButton  likes={movie.likes}/>  </div>
               <Rate rateMovie={rateMovie} rating={movie.rate} movieId={movie._id}/>
             </div>
-            
           </div>
+          <ResumeCard title={movie.title} rate={movie.rate}/>
       </div>
     }
     </div>
@@ -71,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     flexWrap: 'wrap',
     marginTop: '25px'
   },
