@@ -1,14 +1,23 @@
 import React from 'react';
-import { makeStyles, AppBar, Toolbar } from '@material-ui/core';
+import { makeStyles, AppBar, Toolbar,CardMedia } from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 
 import movie from '../../assets/movie.png'
 import Button from '../Button/Button'
 import Link from '@material-ui/core/Link';
+import { useHistory } from "react-router-dom";
 
+import userAvatar from '../../assets/user_profile.png'
 function Header(props) {
   const classes = useStyles();
+  const history = useHistory();
+
+  const logout = () => {
+    localStorage.clear();
+    window.location.reload();
+  }
+
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>
@@ -53,7 +62,24 @@ function Header(props) {
 
         {!(props.loggedUser === null) &&
           <>
-            
+            <Link href={`/perfil/${props.loggedUser._id}`}>
+              <CardMedia
+                  component="img"
+                  height="10"
+                  image={userAvatar}
+                  title="Avatar do usuário"
+                  classes = {{
+                      root: classes.avatar
+                  }}
+              />
+            </Link>
+            {/* <Link href="/entrar" style={{textDecoration: 'none'}}>     */}
+              <Button
+                title='Sair'
+                button='signUp'
+                onClick={logout}
+              />
+            {/* </Link> */}
           </>
         }
       </Toolbar>
@@ -118,6 +144,20 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  avatar: {
+    borderRadius: '50%',
+    width: '55px',
+    height: '55px',
+    margin: '25px 25px 25px 25px',
+    alignSelf: 'center',
+    cursor: 'pointer',
+    '&:focus': {
+      outline: 'none'
+    }
+  },
+  photo: {
+    height: '32px'
+  }
 }));
 
 export default Header;

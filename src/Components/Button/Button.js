@@ -10,6 +10,7 @@ const DefaultButton = (props) => {
         variant="contained"
         color='inherit'
         className={props.button === 'signIn' ? classes.signInButton : classes.signUpButton}
+        onClick={'' || props.onClick}
       >
         {props.title}
       </Button>
