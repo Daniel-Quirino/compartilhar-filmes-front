@@ -10,4 +10,11 @@ export const createUser = async (newUser) => {
                 })
 }
 
+export const getUserById = async (id) => {
+    return await axios.get(`/users/${id}`)
+                .then(function (response) {
+                    return response;
+                })
+}
+
 export default createUser;
