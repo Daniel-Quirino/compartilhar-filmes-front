@@ -6,6 +6,7 @@ import MovieCard from '../../Components/Card/MovieCard'
 import Rate from '../../Components/rate'
 import LikeButton from '../../Components/LikeButton'
 import ResumeCard from '../../Components/ResumeCard'
+import Comments from '../../Components/comment'
 ;
 function MovieInfo(props) {
   const classes = useStyles();
@@ -39,6 +40,7 @@ function MovieInfo(props) {
 
   
     { movie &&
+    <>
       <div className={classes.mostRatedMoviesCard} key={movie.title+Math.random()}>
           <div>
             <MovieCard 
@@ -54,6 +56,10 @@ function MovieInfo(props) {
           </div>
           <ResumeCard title={movie.title} rate={movie.rate}/>
       </div>
+      <div className={classes.comments}>
+      <Comments />
+      </div>
+      </>
     }
     </div>
   )
@@ -63,8 +69,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    paddingTop: '10%',
-    paddingBottom: '10%',
+    paddingTop: '5%',
     backgroundColor: 'gray'
   },
   mostRatedMoviesCard: {
@@ -81,7 +86,13 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignContent: 'center'
+  },
+  comments:{
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center'
   }
 }));
 
 export default MovieInfo;
+
