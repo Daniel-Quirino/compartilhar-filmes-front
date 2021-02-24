@@ -53,7 +53,7 @@ function SearchMovie(props){
               <Rate rateMovie={rateMovie} rating={movie.rate} movieId={movie._id}/>
             </div>
             
-            </div>
+          </div>
         </div>
       );
     })

@@ -10,6 +10,13 @@ const getMovies = async () => {
         })
 }
 
+export const getMovie = async (movieId) => {
+    return await axios.get(`/movies/${movieId}`)
+        .then(function (response) {
+         return response.data;
+        })
+}
+
 export const likeMovieService = async (id, status) => {
     return await axios.put('/movies/like/'+ id, { likes: !status})
         .then(function (response) {
