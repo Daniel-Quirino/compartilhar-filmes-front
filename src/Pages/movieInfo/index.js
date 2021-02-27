@@ -38,7 +38,6 @@ function MovieInfo(props) {
   return (
     <div className={classes.container} >
 
-  
     { movie &&
     <>
       <div className={classes.mostRatedMoviesCard} key={movie.title+Math.random()}>
@@ -54,7 +53,7 @@ function MovieInfo(props) {
               <Rate rateMovie={rateMovie} rating={movie.rate} movieId={movie._id}/>
             </div>
           </div>
-          <ResumeCard title={movie.title} rate={movie.rate}/>
+          <ResumeCard title={movie.title} rate={movie.rate} description={movie.description}/>
       </div>
       <div className={classes.comments}>
       <Comments />

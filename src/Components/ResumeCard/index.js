@@ -49,7 +49,7 @@ export default function SimpleCard(props) {
           {props.title}
         </p>
         <Typography variant="body1" component="p">
-        Em Mulan, Hua Mulan (Liu Yifei) é a espirituosa e determinada filha mais velha de um honrado guerreiro. Quando o Imperador da China emite um decreto que um homem de cada família deve servir no exército imperial, Mulan decide tomar o lugar de seu pai, que está doente. Assumindo a identidade de Hua Jun, ela se disfarça de homem para combater os invasores que estão atacando sua nação, provando-se uma grande guerreira.
+          {props.description}
         </Typography>
       </CardContent>
     </Card>

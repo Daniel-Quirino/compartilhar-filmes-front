@@ -1,5 +1,5 @@
 
-import { formatarIdade, formatarAltDaImagem } from '../Utils/User';
+import { formatarIdade, formatarAltDaImagem } from './User';
 describe('Formatar informações do usuário', () => {
    
   it('Formatar idade de usuário com 19 anos', () => {

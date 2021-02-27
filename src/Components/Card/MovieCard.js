@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles, Typography } from '@material-ui/core';
-import { formatarAltDeFilmes } from '../Utils/Filme';
+import { formatarAltDeFilmes } from '../Utils/filme';
 
 import './MovieCard.css';
 
