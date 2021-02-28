@@ -37,6 +37,7 @@ function MovieInfo(props) {
 
   return (
     <div className={classes.container} >
+      {console.log(movie)}
 
     { movie &&
     <>
@@ -56,7 +57,7 @@ function MovieInfo(props) {
           <ResumeCard title={movie.title} rate={movie.rate} description={movie.description}/>
       </div>
       <div className={classes.comments}>
-      <Comments />
+      <Comments comments={movie.comments}/>
       </div>
       </>
     }
