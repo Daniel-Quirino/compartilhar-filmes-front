@@ -57,10 +57,10 @@ function MovieInfo(props) {
             <ResumeCard title={movie.title} rate={movie.rate} description={movie.description} loggedUser={props.loggedUser} id={movie._id}/>
           </div>
           <div className={classes.comments}>
-            <Comments comments={movie.comments} />
+            <Comments comments={movie.comments} movieId={movie._id}/>
           </div>
         </>
-      }
+    }
     </div>
   )
 }

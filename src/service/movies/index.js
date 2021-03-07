@@ -31,6 +31,14 @@ export const rateMovieService = async (id, rate) => {
         })
 }
 
+export const updateMovieComment = async (id, comment) => {
+    return await axios.put('/movies/comment/'+ id, { comment: comment})
+        .then(function (response) {
+         return response.data;
+        })
+}
+
+
 export default getMovies;
 
 

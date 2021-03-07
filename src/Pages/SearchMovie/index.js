@@ -18,6 +18,7 @@ function SearchMovie(props){
     } catch (e) {
     }
   };
+  
 
   const [ movies, setMovies ] = useState([])
   const classes = useStyles();
