@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles, Typography } from '@material-ui/core';
-import { formatarAltDeFilmes } from '../Utils/filme';
+import { formatarAltDeFilmes } from '../Utils/Filme';
 
 import './MovieCard.css';
 
@@ -15,7 +15,7 @@ const MovieCard = (props) => {
       </div>
     )
   }
-  
+
   const renderViews = (props) => {
     return (
       <div className={classes.movieCardViews}>
@@ -23,15 +23,15 @@ const MovieCard = (props) => {
       </div>
     )
   }
-  
+
   const renderMovieText = (props) => {
     return (
-    <Typography className={classes.movieCardText}>
-      {props.title}
-    </Typography>
+      <Typography className={classes.movieCardText}>
+        {props.title}
+      </Typography>
     )
   }
-  
+
 
   return (
     <div className={classes.movieCardSize}>
@@ -104,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     borderRadius: '10px',
   },
-  
+
   movieCardNote: {
     height: '26px',
     width: '37px',
@@ -119,7 +119,7 @@ const useStyles = makeStyles((theme) => ({
     right: '-7%',
     top: '-7%',
   },
-  
+
   movieCardViews: {
     height: '20px',
     width: '40px',
@@ -134,12 +134,12 @@ const useStyles = makeStyles((theme) => ({
     right: '5%',
     bottom: '2%',
   },
-  
+
   movieCardViewsText: {
     fontWeight: '700',
     marginBottom: '5px',
   },
-  
+
   movieCardText: {
     fontSize: 'larger',
     color: 'white',
