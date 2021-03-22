@@ -1,22 +1,22 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core';
 import { useParams } from "react-router-dom";
-import { getMovie, rateMovieService , likeMovieService} from '../../service/movies';
+import { getMovie, rateMovieService, likeMovieService } from '../../service/movies';
 import MovieCard from '../../Components/Card/MovieCard'
 import Rate from '../../Components/rate'
 import LikeButton from '../../Components/LikeButton'
 import ResumeCard from '../../Components/ResumeCard'
 import Comments from '../../Components/comment'
-;
+  ;
 function MovieInfo(props) {
   const classes = useStyles();
   const { movieId } = useParams();
-  const[movie, setMovie] = useState();
+  const [movie, setMovie] = useState();
 
   async function fetchData() {
     try {
-        const response = await getMovie(movieId);
-        setMovie(response.movie)
+      const response = await getMovie(movieId);
+      setMovie(response.movie)
     } catch (e) {
     }
   };
@@ -31,7 +31,7 @@ function MovieInfo(props) {
     return await fetchData();
   }
 
-  useEffect( () => {
+  useEffect(() => {
     fetchData();
   }, [])
 
@@ -39,28 +39,28 @@ function MovieInfo(props) {
     <div className={classes.container} >
       {console.log(movie)}
 
-    { movie &&
-    <>
-      <div className={classes.mostRatedMoviesCard} key={movie.title+Math.random()}>
-          <div>
-            <MovieCard 
-              title={movie.title}
-              note={movie.notes}
-              image={movie.image}
-              views={movie.views}
-            />
-            <div className={classes.align}>
-              <div onClick={() => likeMovie(movie._id, movie.likes)} > <LikeButton  likes={movie.likes}/>  </div>
-              <Rate rateMovie={rateMovie} rating={movie.rate} movieId={movie._id}/>
+      { movie &&
+        <>
+          <div className={classes.mostRatedMoviesCard} key={movie.title + Math.random()}>
+            <div>
+              <MovieCard
+                title={movie.title}
+                note={movie.notes}
+                image={movie.image}
+                views={movie.views}
+              />
+              <div className={classes.align}>
+                <div onClick={() => likeMovie(movie._id, movie.likes)} > <LikeButton likes={movie.likes} />  </div>
+                <Rate rateMovie={rateMovie} rating={movie.rate} movieId={movie._id} />
+              </div>
             </div>
+            <ResumeCard title={movie.title} rate={movie.rate} description={movie.description} />
           </div>
-          <ResumeCard title={movie.title} rate={movie.rate} description={movie.description}/>
-      </div>
-      <div className={classes.comments}>
-      <Comments comments={movie.comments}/>
-      </div>
-      </>
-    }
+          <div className={classes.comments}>
+            <Comments comments={movie.comments} />
+          </div>
+        </>
+      }
     </div>
   )
 }
@@ -87,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignContent: 'center'
   },
-  comments:{
+  comments: {
     width: '100%',
     display: 'flex',
     justifyContent: 'center'

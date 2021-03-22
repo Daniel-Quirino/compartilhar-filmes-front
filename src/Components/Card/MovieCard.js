@@ -142,7 +142,6 @@ const useStyles = makeStyles((theme) => ({
 
   movieCardText: {
     fontSize: 'larger',
-    color: 'white',
     fontWeight: '600',
     color: 'black'
   }

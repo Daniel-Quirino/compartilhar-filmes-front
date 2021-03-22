@@ -1,17 +1,15 @@
 import React from 'react';
-import { makeStyles, AppBar, Toolbar,CardMedia } from '@material-ui/core';
+import { makeStyles, AppBar, Toolbar, CardMedia } from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 
 import movie from '../../assets/movie.png'
 import Button from '../Button/Button'
 import Link from '@material-ui/core/Link';
-import { useHistory } from "react-router-dom";
 
 import userAvatar from '../../assets/user_profile.png'
 function Header(props) {
   const classes = useStyles();
-  const history = useHistory();
 
   const logout = () => {
     localStorage.clear();
@@ -26,7 +24,7 @@ function Header(props) {
             <img src={movie} alt='logo' className={classes.logo} />
           </Link>
         </div>
-        
+
         <div className={classes.search}>
           <div className={classes.searchIcon}>
             <SearchIcon />
@@ -45,13 +43,13 @@ function Header(props) {
 
         {props.loggedUser === null &&
           <>
-            <Link href="/cadastrar" style={{textDecoration: 'none'}}>
-              <Button 
+            <Link href="/cadastrar" style={{ textDecoration: 'none' }}>
+              <Button
                 title='Cadastre-se'
                 button='signIn'
               />
             </Link>
-            <Link href="/entrar" style={{textDecoration: 'none'}}>
+            <Link href="/entrar" style={{ textDecoration: 'none' }}>
               <Button
                 title='Login'
                 button='signUp'
@@ -64,21 +62,21 @@ function Header(props) {
           <>
             <Link href={`/perfil/${props.loggedUser._id}`}>
               <CardMedia
-                  component="img"
-                  height="10"
-                  image={userAvatar}
-                  title="Avatar do usuário"
-                  classes = {{
-                      root: classes.avatar
-                  }}
+                component="img"
+                height="10"
+                image={userAvatar}
+                title="Avatar do usuário"
+                classes={{
+                  root: classes.avatar
+                }}
               />
             </Link>
             {/* <Link href="/entrar" style={{textDecoration: 'none'}}>     */}
-              <Button
-                title='Sair'
-                button='signUp'
-                onClick={logout}
-              />
+            <Button
+              title='Sair'
+              button='signUp'
+              onClick={logout}
+            />
             {/* </Link> */}
           </>
         }
@@ -89,18 +87,18 @@ function Header(props) {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-      height: '100vh',
-      backgroundColor: theme.palette.background.dark
+    height: '100vh',
+    backgroundColor: theme.palette.background.dark
   },
   grow: {
-      flexGrow: 1
+    flexGrow: 1
   },
   margin: {
     marginRight: '100px',
   },
   logo: {
-      height: 40,
-      width: 45
+    height: 40,
+    width: 45
   },
   appBar: {
     height: 70
