@@ -4,19 +4,18 @@ import Skeleton from 'react-loading-skeleton';
 
 import userAvatar from '../../assets/user_profile.png'
 import { getUserById } from '../../service/users/index'
+import { useParams } from "react-router-dom";
 
 function Profile(props) {
 
   const classes = useStyles();
-  const [/* loggedUser */, setLoggedUser] = useState(props.loggedUser)
   const [profileOwner, setProfileOwner] = useState(null)
-
-
+  const { userId } = useParams();
 
   useEffect(() => {
     const getProfileOwner = async () => {
       try {
-        const res = await getUserById(props.loggedUser._id);
+        const res = await getUserById(userId);
         setProfileOwner(res.data.user);
       } catch (error) {
         console.log("Error")
@@ -27,12 +26,7 @@ function Profile(props) {
       await getProfileOwner();
     }
     fetchData();
-  }, [props.loggedUser._id])
-
-  useEffect(() => {
-    setLoggedUser(props.loggedUser);
-  }, [props.loggedUser])
-
+  }, [userId])
 
   return (
     <div className={classes.container}>
@@ -49,9 +43,38 @@ function Profile(props) {
                   root: classes.avatar
                 }}
               />
-              <Typography className={classes.userName}>
-                {profileOwner.name}
-              </Typography>
+              <div className={classes.row}>
+                <Typography className={classes.title} style={{ marginRight: '85px' }}>
+                  Nome:
+                </Typography>
+                <Typography className={classes.content}>
+                  {profileOwner.name}
+                </Typography>
+              </div>
+              <div className={classes.row}>
+                <Typography className={classes.title} style={{ marginRight: '74px' }}>
+                  Cidade:
+                </Typography>
+                <Typography className={classes.content}>
+                  {profileOwner.city}
+                </Typography>
+              </div>
+              <div className={classes.row}>
+                <Typography className={classes.title} style={{ marginRight: '50px' }}>
+                  Nickname:
+                </Typography>
+                <Typography className={classes.content}>
+                  {profileOwner.user_name}
+                </Typography>
+              </div>
+              <div className={classes.row}>
+                <Typography className={classes.title} style={{ marginRight: '90px' }}>
+                  Email:
+                </Typography>
+                <Typography className={classes.content}>
+                  {profileOwner.email}
+                </Typography>
+              </div>
             </>
             :
             <Skeleton height={400} />
@@ -77,7 +100,8 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 500,
     maxWidth: 600,
     backgroundColor: '#363636',
-    color: 'white'
+    color: 'white',
+    borderRadius: '25px'
   },
   avatar: {
     borderRadius: '50%',
@@ -89,6 +113,18 @@ const useStyles = makeStyles((theme) => ({
   userName: {
     alignSelf: 'center',
     fontSize: 'xx-large',
+  },
+  row: {
+    display: 'flex',
+    paddingTop: '20px'
+  },
+  title: {
+    fontSize: '20px',
+    color: 'darkgrey',
+    marginLeft: '10%',
+  },
+  content: {
+    fontSize: 'x-large'
   }
 }));
 
