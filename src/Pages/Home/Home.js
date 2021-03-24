@@ -1,17 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles, Typography } from '@material-ui/core';
 import DoraAventureiraImg from '../../assets/dora-aventureira.png'; 
 import MovieCard from '../../Components/Card/MovieCard';
-import MockMoviePicture from '../../assets/minha-mae-uma-peca.jpg';
 import NewMovieCard from '../../Components/NewMovieCard';
 import NewUserCard from '../../Components/NewUserCard';
 import ClaqueteImg from '../../assets/claquete.png';
 import {getAllUsers} from '../../service/users/index';
+import moviesService from '../../service/movies'
 
 function Home(){
   const classes = useStyles();
+  const [movies, setMovies] = useState([])
 
   const [newUsersOrderedByDate, setNewUsersOrderedByDate] = React.useState([]);
+
+  async function fetchData() {
+    try {
+        const response = await moviesService();
+        const orderMovies = response.movies.sort((a,b) =>  (a.notes < b.notes) ? 1 : ((b.notes < a.notes) ? -1 : 0))
+        console.log(orderMovies)
+        setMovies(orderMovies)
+    } catch (e) {
+    }
+  };
+
+  useEffect( () => {
+    fetchData();
+  }, [])
 
   useState(() => {
     async function getUsers(){
@@ -23,32 +38,6 @@ function Home(){
     getUsers()
   }, [])
 
-  let mostRatedMovies = [
-    {
-      title: 'O som do metal',
-      note: '6.7',
-      image: MockMoviePicture,
-      views: '200',
-    },
-    {
-      title: 'O som do metal',
-      note: '6.7',
-      image: MockMoviePicture,
-      views: '200',
-    },
-    {
-      title: 'O som do metal',
-      note: '6.7',
-      image: MockMoviePicture,
-      views: '200',
-    },
-    {
-      title: 'O som do metal',
-      note: '6.7',
-      image: MockMoviePicture,
-      views: '200',
-    }
-  ]
 
   let newMovies = [
     {
@@ -66,7 +55,9 @@ function Home(){
   ]
 
   const renderMostRatedMovies = () => {
-    return mostRatedMovies.map((movie) => {
+
+    return movies.map((movie, index) => {
+      if(index>4) return;
       return (
         <div className={classes.mostRatedMoviesCard} key={movie.title+Math.random()}>
             <MovieCard 
@@ -74,6 +65,7 @@ function Home(){
               note={movie.note}
               image={movie.image}
               views={movie.views}
+              note={movie.notes}
             />
         </div>
       );
