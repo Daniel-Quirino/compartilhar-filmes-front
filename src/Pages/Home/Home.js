@@ -94,7 +94,6 @@ function Home(){
   const renderNewUsers = () => {
 
     const firstFive = []
-    console.log(newUsersOrderedByDate)
     for(let i = newUsersOrderedByDate.length; i > newUsersOrderedByDate.length - 6; i--){
       if(newUsersOrderedByDate[i])
         firstFive.push(newUsersOrderedByDate[i])
@@ -104,7 +103,8 @@ function Home(){
         <NewUserCard 
           name={user.name}
           age={user.age}
-          address={user.address}
+          city={user.city}
+          _id={user._id}
         />
       );
     })

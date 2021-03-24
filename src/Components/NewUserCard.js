@@ -5,6 +5,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import {Link} from 'react-router-dom'
 import {formatarIdade, formatarAltDaImagem} from './Utils/User';
 
 import userAvatar from '../assets/user_profile.png'
@@ -14,6 +15,7 @@ const NewUserCard = (props) => {
   const classes = useStyles();
 
   return (
+      <Link to={`/perfil/${props._id}`} style={{textDecoration: 'none'}}>
         <Card className={classes.root}>
           <CardActionArea>
             <div className={classes.avatarPosition}>
@@ -33,14 +35,12 @@ const NewUserCard = (props) => {
                   {props.name}
               </Typography>
               <Typography className={classes.description}>
-                  {formatarIdade(props.age)}
-              </Typography>
-              <Typography className={classes.description}>
-                  {props.address}
+                  {props.city}
               </Typography>
             </CardContent>
           </CardActionArea>
         </Card>
+        </Link>
   );
 }
 
@@ -52,7 +52,6 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
     },
     root: {
-        width: '20%',
         margin: '10px 10px 10px 10px',
         borderRadius: '20px',
         backgroundColor: '#1e1b49'
