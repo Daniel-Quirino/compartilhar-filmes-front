@@ -23,6 +23,10 @@ export const getAllUsers = async() => {
                     return res;
                 })
 }
+
+export const watchMovie = async(userId, movie) => {
+    return await axios.patch(`/users/watch/movie/${userId}`, movie)
+}
     
 
 export default createUser;
