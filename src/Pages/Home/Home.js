@@ -42,15 +42,15 @@ function Home(){
   let newMovies = [
     {
       title: 'Dora, a aventureira',
-      image: DoraAventureiraImg,
+      image: 'https://i.pinimg.com/236x/00/f2/86/00f28680f7d2a71eb8b2b2137fbcc10b.jpg',
     },
     {
-      title: 'Dora, a aventureira',
-      image: DoraAventureiraImg,
+      title: 'Viúva Negra',
+      image: 'https://www.kinoplex.com.br/filmes/images/cartaz/262x388/viuva-negra.jpg?1588641964',
     },
     {
-      title: 'Dora, a aventureira',
-      image: DoraAventureiraImg,
+      title: 'Sonic, o Filme',
+      image: 'https://ingresso-a.akamaihd.net/img/cinema/cartaz/22968-cartaz.jpg',
     },
   ]
 

@@ -33,7 +33,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    width: '400px',
+    heigth: '200px'
   },
   title: {
     color: 'white',
