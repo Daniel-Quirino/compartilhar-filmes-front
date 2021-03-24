@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles, Typography } from '@material-ui/core';
 import DoraAventureiraImg from '../../assets/dora-aventureira.png'; 
 import MovieCard from '../../Components/Card/MovieCard';
 import MockMoviePicture from '../../assets/minha-mae-uma-peca.jpg';
 import NewMovieCard from '../../Components/NewMovieCard';
 import NewUserCard from '../../Components/NewUserCard';
-import ClaqueteImg from '../../assets/claquete.png'
-
+import ClaqueteImg from '../../assets/claquete.png';
+import {getAllUsers} from '../../service/users/index';
 
 function Home(){
   const classes = useStyles();
+
+  const [newUsersOrderedByDate, setNewUsersOrderedByDate] = React.useState([]);
+
+  useState(() => {
+    async function getUsers(){
+      await getAllUsers().then(res => {
+        setNewUsersOrderedByDate(res.data.users);
+      })
+    }
+
+    getUsers()
+  }, [])
 
   let mostRatedMovies = [
     {
@@ -53,29 +65,6 @@ function Home(){
     },
   ]
 
-  let newUsers = [
-    {
-      name: 'Lucas Silva',
-      age: 21,
-      address: 'Belo Horizonte, MG'
-    },
-    {
-      name: 'Lucas Silva',
-      age: 21,
-      address: 'Belo Horizonte, MG'
-    },
-    {
-      name: 'Lucas Silva',
-      age: 21,
-      address: 'Belo Horizonte, MG'
-    },
-    {
-      name: 'Lucas Silva',
-      age: 21,
-      address: 'Belo Horizonte, MG'
-    },
-  ]
-
   const renderMostRatedMovies = () => {
     return mostRatedMovies.map((movie) => {
       return (
@@ -103,7 +92,14 @@ function Home(){
   }
 
   const renderNewUsers = () => {
-    return newUsers.map((user) => {
+
+    const firstFive = []
+    console.log(newUsersOrderedByDate)
+    for(let i = newUsersOrderedByDate.length; i > newUsersOrderedByDate.length - 6; i--){
+      if(newUsersOrderedByDate[i])
+        firstFive.push(newUsersOrderedByDate[i])
+    }
+    return firstFive.map((user) => {
       return (
         <NewUserCard 
           name={user.name}
@@ -158,7 +154,7 @@ function Home(){
           </Typography>
 
           <div className={classes.newUsers}>
-            {renderNewUsers()}
+            {newUsersOrderedByDate.length > 0 && renderNewUsers()}
           </div>
         </div>
 
