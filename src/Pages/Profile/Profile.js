@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { makeStyles, Card, CardContent, Typography, CardMedia } from '@material-ui/core';
+import { makeStyles, Card, CardContent, Typography, CardMedia, Grid } from '@material-ui/core';
 import Skeleton from 'react-loading-skeleton';
 import Button from '@material-ui/core/Button';
+
+import MovieCard from '../../Components/Card/MovieCard'
 
 import userAvatar from '../../assets/user_profile.png'
 import { getUserById } from '../../service/users/index'
@@ -32,6 +34,23 @@ function Profile(props) {
 
   function handleEstante() {
     setEstante(!estante)
+  }
+
+  function renderWatchedMovies(){
+    const movies = []
+    profileOwner.watched_movies.map((movie) => {
+      movies.push(
+        <MovieCard 
+            title={movie.title}
+            note={movie.note}
+            image={movie.image}
+            views={movie.views}
+            className={classes.movies}
+        />
+      )
+    })
+
+    return movies
   }
 
   return (
@@ -91,7 +110,18 @@ function Profile(props) {
                   </Typography>
                 </div>
               </>
-              : <> </>
+              : 
+              <div>
+                <div>
+                  <p onClick={() => setEstante(false)} style={{cursor: 'pointer'}}>Voltar</p>
+                </div>
+                <div style={{display: 'flex', justifyContent: 'center'}}>
+                  <p style={{fontFamily: 'cursive'}}>FILMES ASSISTIDOS 🍿</p>
+                </div>
+                <div className={classes.board}>
+                    {renderWatchedMovies()}
+                </div>
+              </div>
             :
             <Skeleton height={400} />
           }
@@ -152,7 +182,16 @@ const useStyles = makeStyles((theme) => ({
       color: "black",
       backgroundColor: 'grey'
     },
-  }
+  },
+  board:{
+    display: 'grid',
+    alignItems: 'center',
+    gridAutoFlow: 'row',
+    gridAutoRows: '35%', // play with this to change height of the children, 50% will fill half
+    gridTemplateColumns: '1fr 1fr', // do not set template columns and rows
+    gridTemplateRows: 'unset',
+    overflow: 'scroll'
+  },
 }));
 
 export default Profile;
