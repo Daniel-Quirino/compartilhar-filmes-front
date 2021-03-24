@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { makeStyles, Card, CardContent, Typography, CardMedia } from '@material-ui/core';
 import Skeleton from 'react-loading-skeleton';
+import Button from '@material-ui/core/Button';
 
 import userAvatar from '../../assets/user_profile.png'
 import { getUserById } from '../../service/users/index'
@@ -10,6 +11,7 @@ function Profile(props) {
 
   const classes = useStyles();
   const [profileOwner, setProfileOwner] = useState(null)
+  const [estante, setEstante] = useState(false)
   const { userId } = useParams();
 
   useEffect(() => {
@@ -28,54 +30,68 @@ function Profile(props) {
     fetchData();
   }, [userId])
 
+  function handleEstante() {
+    setEstante(!estante)
+  }
+
   return (
     <div className={classes.container}>
       <Card className={classes.root}>
         <CardContent style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
           {profileOwner ?
-            <>
-              <CardMedia
-                component="img"
-                height="150"
-                image={userAvatar}
-                title="Avatar do usuário"
-                classes={{
-                  root: classes.avatar
-                }}
-              />
-              <div className={classes.row}>
-                <Typography className={classes.title} style={{ marginRight: '85px' }}>
-                  Nome:
-                </Typography>
-                <Typography className={classes.content}>
-                  {profileOwner.name}
-                </Typography>
-              </div>
-              <div className={classes.row}>
-                <Typography className={classes.title} style={{ marginRight: '74px' }}>
-                  Cidade:
-                </Typography>
-                <Typography className={classes.content}>
-                  {profileOwner.city}
-                </Typography>
-              </div>
-              <div className={classes.row}>
-                <Typography className={classes.title} style={{ marginRight: '50px' }}>
-                  Nickname:
-                </Typography>
-                <Typography className={classes.content}>
-                  {profileOwner.user_name}
-                </Typography>
-              </div>
-              <div className={classes.row}>
-                <Typography className={classes.title} style={{ marginRight: '90px' }}>
-                  Email:
-                </Typography>
-                <Typography className={classes.content}>
-                  {profileOwner.email}
-                </Typography>
-              </div>
-            </>
+            !estante ?
+              <>
+                <CardMedia
+                  component="img"
+                  height="150"
+                  image={userAvatar}
+                  title="Avatar do usuário"
+                  classes={{
+                    root: classes.avatar
+                  }}
+                />
+                <div style={{display: 'flex', justifyContent: 'center'}}>
+                  <Button 
+                    onClick={() => handleEstante()}
+                    className={classes.estanteButton}
+                  >
+                      Estante de Filmes
+                  </Button>
+                </div>
+                <div className={classes.row}>
+                  <Typography className={classes.title} style={{ marginRight: '85px' }}>
+                    Nome:
+                  </Typography>
+                  <Typography className={classes.content}>
+                    {profileOwner.name}
+                  </Typography>
+                </div>
+                <div className={classes.row}>
+                  <Typography className={classes.title} style={{ marginRight: '74px' }}>
+                    Cidade:
+                  </Typography>
+                  <Typography className={classes.content}>
+                    {profileOwner.city}
+                  </Typography>
+                </div>
+                <div className={classes.row}>
+                  <Typography className={classes.title} style={{ marginRight: '50px' }}>
+                    Nickname:
+                  </Typography>
+                  <Typography className={classes.content}>
+                    {profileOwner.user_name}
+                  </Typography>
+                </div>
+                <div className={classes.row}>
+                  <Typography className={classes.title} style={{ marginRight: '90px' }}>
+                    Email:
+                  </Typography>
+                  <Typography className={classes.content}>
+                    {profileOwner.email}
+                  </Typography>
+                </div>
+              </>
+              : <> </>
             :
             <Skeleton height={400} />
           }
@@ -125,6 +141,17 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     fontSize: 'x-large'
+  },
+  estanteButton: {
+    borderRadius: '10px',
+    marginBottom: '20px',
+    backgroundColor: theme.palette.secondary.main,
+    color: 'white',
+    fontWeight: 500,
+    '&:hover': {
+      color: "black",
+      backgroundColor: 'grey'
+    },
   }
 }));
 

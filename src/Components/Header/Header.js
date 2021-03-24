@@ -8,6 +8,8 @@ import Button from '../Button/Button'
 import Link from '@material-ui/core/Link';
 
 import userAvatar from '../../assets/user_profile.png'
+import SearchBar from './SearchBar'
+
 function Header(props) {
   const classes = useStyles();
 
@@ -25,21 +27,27 @@ function Header(props) {
           </Link>
         </div>
 
-        <div className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
+        {window.location.pathname === '/' &&
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              onChange={(input) => props.getMovie(input.target.value)}
+              placeholder="Procurar Filmes"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
           </div>
-          <InputBase
-            onChange={(input) => props.getMovie(input.target.value)}
-            placeholder="Procurar Filmes"
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput,
-            }}
-            inputProps={{ 'aria-label': 'search' }}
-          />
-        </div>
+        }
+
+        
         <div className={classes.grow} />
+
+        <SearchBar />
 
         {props.loggedUser === null &&
           <>
